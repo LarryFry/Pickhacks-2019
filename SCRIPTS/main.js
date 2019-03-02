@@ -1,6 +1,6 @@
 // Gloval Variables
-var appID = "36b1ec01"; // edamamAPI application ID
-var appKey = "08e02c12371df75898d0efdf6782b57e"; // edamamAPI application key
+var appID = "4052db9a"; // edamamAPI application ID
+var appKey = "4a96e69729ab34fad8cf058ecddf5d4a"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
@@ -40,7 +40,6 @@ Recipe.prototype.showRecipe = function() {
     .append([
       $("<div>")
         .addClass("dropdown-trigger")
-        .attr("title", "Click me!")
         .append(
           $("<button>")
             .attr({
@@ -121,8 +120,8 @@ function removeNonLettes(str) {
 
 // searchParam => contains lettes only and "%20" instead of spaces
 function parseSearchParam() {
-  searchParam = removeNonLettes(searchParam);
-  searchParam = replaceSpaces(searchParam);
+  //searchParam = removeNonLettes(searchParam);
+//  searchParam = replaceSpaces(searchParam);
 }
 
 // create Recipe objects from the API's json file and display them
@@ -142,12 +141,7 @@ function apiSuccess(json) {
 // zero-out the search fields and variables
 function initFields() {
   $("#searchBox").val("");
-  $("#health").val("");
   $("#diet").val("");
-  diet = "";
-  health = "";
-  $("#advancedAfter").hide();
-  $("#advancedBefore").show();
 }
 
 // API
@@ -278,7 +272,7 @@ function nutritionixSearch(){
   xhr.onload = function(){
     if(this.status == 200){
       console.log("Worked");
-      //parsing and workng with the JSON 
+      //parsing and workng with the JSON
       var jsonResponse = JSON.parse(xhr.responseText);
       console.log(jsonResponse.foods[0]);
     } else {
@@ -286,9 +280,9 @@ function nutritionixSearch(){
     }
   }
   xhr.onerror = function(){
-    console.log("Request Error"); 
+    console.log("Request Error");
   }
-  
+
   // API Key
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   xhr.setRequestHeader('x-app-id', '3d3fc303');
@@ -299,4 +293,4 @@ function nutritionixSearch(){
   var data = document.getElementById("searchbar").value;
   data = '{"query":"'+data+'"}';
   xhr.send(data);
-};  
+};
