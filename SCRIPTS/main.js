@@ -77,7 +77,7 @@ Recipe.prototype.showRecipe = function() {
     ]);
 
   var card = $("<div>")
-    .addClass("column")
+    .addClass("cardContainer")
     .append(
       $("<div>")
         .addClass("card")
@@ -141,7 +141,7 @@ function apiSuccess(json) {
 // zero-out the search fields and variables
 function initFields() {
   $("#searchBox").val("");
-  $("#diet").val("");
+  $(".diet").val("Balanced");
 }
 
 // API
@@ -249,9 +249,9 @@ $(document).ready(function() {
   });
 
   // assign the diet variable the selected option from the select form
-  $("#diet")
+  $(".diet")
     .change(function() {
-      $("#diet option:selected").each(function() {
+      $(".diet option:selected").each(function() {
         var str = $(this)
           .text()
           .toLowerCase();

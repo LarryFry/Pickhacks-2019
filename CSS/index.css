@@ -6,7 +6,7 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  
+
 	width:100%;
 	background-size: cover;
   background-image:url("background_veg.jpg");
@@ -50,7 +50,7 @@ form{
 	border-radius: 3px;
 	overflow: hidden;
 	background-color:green;
-	
+
   background: #fafafa;
 }
 
@@ -89,7 +89,7 @@ option:hover {
 
 
 
-
+/* SEARCH CSS --------------------------------------------------------------------*/
 #boxAndDropdown{
 
 }
@@ -98,7 +98,7 @@ option:hover {
 	margin: 0;
   border: 0;
   padding: 0;
-	
+
 	width:100%;
 	background-size: cover;
   background-image:url("background_veg.jpg");
@@ -201,9 +201,10 @@ a{
   transform: scale(1.1);
 }
 
+/* CARD CSS -------------------------------------------------------------------------*/
 .card{
-	text-align:left;
-	
+	text-align:center;
+
 }
 
 .image.is-square{
@@ -217,12 +218,7 @@ a{
 	background-color:red;
 }
 
-
-
-
-
-
-
-
-
-
+.cardContainer{
+  margin: 0 auto;
+  background-color: blue;
+}
