@@ -1,36 +1,54 @@
-<!Doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Protein Pal</title>
+    <!-- Title Bar Image-->
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="CSS/index.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <!-- Animate.css-->
+    <link rel="stylesheet" href="3rd_Party_Libraries/animate.css">
+    <!-- The ever-holy JQuery. -->
+    <script src="3rd_Party_Libraries/JQuery.js"></script>
+    <!-- The libraries for using super dank scroll functionality and GSAP libraries (which is used for parallaxing images)-->
+    <script src="3rd_Party_Libraries\ScrollMagic\ScrollMagic.min.js"></script>
+    <script src="3rd_Party_Libraries\ScrollMagic\plugins\GSAP_Tweening.js"></script>
+    <script src="3rd_Party_Libraries\ScrollMagic\plugins\animation.gsap.min.js"></script>
+    <!--  Custom Logic Script-->
+    <script src="SCRIPTS/main.js"></script>
+  </head>
 
-<head>
-    <link rel="stylesheet" href="./CSS/index.css">
-</head>
+  <body>
+    <div id="blackwrapper">
+      <header>
+        <h1 id="Title">Protein Pal</h1>
+        <!--<a id="Recipes" href="http://www.google.com" target="_blank">Link 1</a>
+           <a id="Ingredients" href="http://www.google.com" target="_blank">Link 2</a>-->
+      </header>
 
-<body>
-  <!-- SEARCH BOX -->
-  <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
-                                                                                          size="50" title="Yum Yum!">
-  <!-- SEARCH BUTTON -->
-  <button id="searchBtn" class="button is-info" type="submit">Search!</button>
-  <div class="Adv-Opt">
-    <select id="diet">
-      <option></option>
-      <option>Balanced</option>
-      <option>High-Protein</option>
-      <option>Low-Carb</option>
-      <option>Low-Fat</option>
-      <option>Low-Sodium</option>
-    </select>
-  </div>
-            <!-- OUTPUT -->
-            <div class="output">
-            </div>
+      <div id="maindiv">
+        <form>
+          <input id="searchBox" type="text" name="search" placeholder="e.g. Spaghetti and Meatballs">
+          <input id="searchBtn" type="button" value="Enter">
+        </form>
 
+        <div class="Adv-Opt">
+          <select id="diet">
+            <option></option>
+            <option>Balanced</option>
+            <option>High-Protein</option>
+            <option>Low-Carb</option>
+            <option>Low-Fat</option>
+            <option>Low-Sodium</option>
+          </select>
+        </div>
 
-    <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous">
-  </script>
-
-  <script src="./SCRIPTS/main.js"></script>
-</body>
+        <!-- OUTPUT -->
+        <div class="output">
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

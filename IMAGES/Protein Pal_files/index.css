@@ -1,0 +1,40 @@
+html {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+main{
+  text-align: center;
+  background-color: red;
+}
+
+form{
+  width:500px;
+  margin:50px auto;
+  text-align: center;
+}
+
+#searchbar{
+  background-image:url("search_icon.png");
+  padding: 12px 20px 12px 50px;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  border-radius:17px;
+
+  background-position: left center;
+  background-position: 10px 5px;
+}
+
+#Title{
+  margin: 0;
+  text-align: center;
+}
+
+#searchbutton{
+  
+}
