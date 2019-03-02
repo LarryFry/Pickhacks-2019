@@ -373,3 +373,35 @@ $(function() {
       }
     });
 });
+
+//Larry's API work
+function nutritionixSearch(){
+  var xhr = new XMLHttpRequest();
+  xhr.overrideMimeType("application/json");
+  xhr.open('POST',"https://trackapi.nutritionix.com/v2/natural/nutrients",true);
+
+  xhr.onload = function(){
+    if(this.status == 200){
+      console.log("Worked");
+      //parsing and workng with the JSON 
+      var jsonResponse = JSON.parse(xhr.responseText);
+      console.log(jsonResponse.foods[0]);
+    } else {
+      console.log(this.status);
+    }
+  }
+  xhr.onerror = function(){
+    console.log("Request Error"); 
+  }
+  
+  // API Key
+  xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  xhr.setRequestHeader('x-app-id', '3d3fc303');
+  xhr.setRequestHeader('x-app-key', '1bd34df9589ac1985af63cf9430863ce');
+  xhr.setRequestHeader('x-remote-user-id', 'lff8gw');
+  xhr.setRequestHeader('accept', 'application/json');
+  //xhr.responseType = 'json';
+  var data = document.getElementById("searchbar").value;
+  data = '{"query":"'+data+'"}';
+  xhr.send(data);
+};  
