@@ -263,6 +263,13 @@ $(document).ready(function() {
 
 });
 
+
+/*------------------------------
+	Cole's custom GUI logic w/JQuery
+------------------------------*/
+
+
+
 //Larry's API work
 function nutritionixSearch(){
   var xhr = new XMLHttpRequest();
