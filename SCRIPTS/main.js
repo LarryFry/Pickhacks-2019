@@ -269,7 +269,6 @@ $(document).ready(function() {
 ------------------------------*/
 
 
-
 //Larry's API work
 function nutritionixSearch(){
   var xhr = new XMLHttpRequest();

@@ -27,6 +27,22 @@ form{
     outline: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .Adv-Opt{
   display: inline-block;
 	border: 1px solid #ccc;
@@ -34,9 +50,8 @@ form{
 	border-radius: 3px;
 	overflow: hidden;
 	background-color:green;
-
 	
-	/*background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;*/
+  background: #fafafa;
 }
 
 .Adv-Opt select {
@@ -44,14 +59,36 @@ form{
     width: 100%;
     border: none;
     box-shadow: none;
-    background: transparent;
+    background: rgb(80,200,80);
     background-image: none;
-    -webkit-appearance: none;
+		font-size: 14	px;
 }
 
 .Adv-Opt select:focus {
     outline: none;
 }
+
+option:hover {
+    outline: none;
+		color:purple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #boxAndDropdown{
 
@@ -158,7 +195,7 @@ a{
 }
 
 #searchBtn:hover{
-  transition: transform 0.3s;
+  transition: transform 0.2s;
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
