@@ -22,7 +22,13 @@ function Recipe(label, ingredients, image, url) {
 Recipe.prototype.listIngredients = function() {
   var ingList = $("<ul>");
   for (var i = 0; i < this.ingredients.length; i++) {
-    var ing = $("<li>").text(this.ingredients[i].text);
+    var currentRecipe = this.label;
+    var currentIngredient = this.ingredients[i].text;
+    var ing = $("<li>")
+    .append(
+    $("<a>")
+      .attr({href:"javascript:void(0)", onclick: 'nutritionixSearch($(this).text())'})
+      .text(this.ingredients[i].text));
     ingList.append(ing);
   }
   return ingList;
@@ -134,6 +140,7 @@ function apiSuccess(json) {
       json.hits[i].recipe.url
     );
     recipes.push(recipe);
+    //try putting javascript call here
     recipe.showRecipe();
   }
 }
@@ -261,6 +268,8 @@ $(document).ready(function() {
     })
     .trigger("change");
 
+    
+
 });
 
 
@@ -271,7 +280,7 @@ $(document).ready(function() {
 
 
 //Larry's API work
-function nutritionixSearch(){
+function nutritionixSearch(data){
   var xhr = new XMLHttpRequest();
   xhr.overrideMimeType("application/json");
   xhr.open('POST',"https://trackapi.nutritionix.com/v2/natural/nutrients",true);
@@ -292,12 +301,17 @@ function nutritionixSearch(){
 
   // API Key
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  xhr.setRequestHeader('x-app-id', '3d3fc303');
-  xhr.setRequestHeader('x-app-key', '1bd34df9589ac1985af63cf9430863ce');
-  xhr.setRequestHeader('x-remote-user-id', 'lff8gw');
+  xhr.setRequestHeader('x-app-id', '490acc30');
+  xhr.setRequestHeader('x-app-key', '7af20e0b7ebcc7904c66e1cad2d51db8');
+  xhr.setRequestHeader('x-remote-user-id', 'larryfry');
   xhr.setRequestHeader('accept', 'application/json');
   //xhr.responseType = 'json';
-  var data = document.getElementById("searchbar").value;
+  //var data = document.getElementById("searchbar").value;
   data = '{"query":"'+data+'"}';
   xhr.send(data);
+};
+
+
+function ingredientStorage(currentRecipe, currentIngredient){
+  console.log(currentRecipe +" "+ currentIngredient);  
 };
