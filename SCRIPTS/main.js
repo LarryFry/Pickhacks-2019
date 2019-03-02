@@ -4,7 +4,6 @@ var appKey = "08e02c12371df75898d0efdf6782b57e"; // edamamAPI application key
 var searchParam = ""; // the search param to use for the api query
 var excluded = ""; // ingredient to exclude from results (for future functionality)
 var diet = ""; // diet selector
-var health = ""; // health selector
 var from = 0; // index of the first result to return from the API
 var to = 5; // index of the last result to return from the API
 var space = "%20"; // use this instead of spaces between words
@@ -29,7 +28,7 @@ Recipe.prototype.listIngredients = function() {
   return ingList;
 };
 
-// builds the card items and appends them to the page (BULMA)
+// builds the card items and appends them to the page
 Recipe.prototype.showRecipe = function() {
   var link = $("<a>").attr({
     href: this.url,
@@ -179,17 +178,14 @@ function runAPI() {
     error: function() {
       // on API error
       $("#moreResults").hide();
-      var msg = $("<img>")
+      var msg = $("<h3>")
         .attr({
-          src: "./assets/images/error.jpg",
           title: "Please try different search parameters"
         })
         .css({
           "justify-content": "center",
           position: "absolute",
-          right: "36%",
-          width: "350px",
-          "border-radius": "25px"
+          right: "36%"
         });
       $(".output").append(msg);
       initFields();
@@ -214,21 +210,6 @@ $(document).ready(function() {
     });
   });
 
-  // show advanced options
-  $("#advancedBefore").click(function() {
-    $("#advancedBefore").hide();
-    $("#advancedAfter").toggle("slide", 1000);
-  });
-
-  // jQueryUI toggle about notification area
-  $("#aboutLink").click(function() {
-    $("#notification").toggle("blind", 1000);
-  });
-
-  // closes the about notification area
-  $("#deleteBtn").click(function() {
-    $("#notification").toggle("blind", 1000);
-  });
 
   // displays more results to the user
   $("#moreResults").click(function() {
@@ -286,92 +267,6 @@ $(document).ready(function() {
     })
     .trigger("change");
 
-  // assign the health variable the selected option from the select form
-  $("#health")
-    .change(function() {
-      $("#health option:selected").each(function() {
-        var str = $(this)
-          .text()
-          .toLowerCase();
-        if (str !== "") health = "&health=" + str;
-        else health = "";
-      });
-    })
-    .trigger("change");
-
-  //jQueryUI tooptip
-  $("#searchBox").tooltip({
-    show: {
-      effect: "slideDown",
-      delay: 1000
-    },
-    hide: {
-      effect: "slideUp",
-      delay: 100
-    },
-    track: true
-  });
-
-  // // clear out the search box on a mouse click
-  // $('#searchBox').click(function () {
-  //     $('#searchBox').val("");
-  // });
-
-  // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
-  // $('#searchBox').keydown(function (event) {
-  //     if (event.keyCode == 13) {
-  //         searchParam = $('#searchBox').val();
-  //         parseSearchParam();
-  //         runAPI();
-  //         return false;
-  //     }
-  // });
-});
-
-// jQueryUI autocomplete
-$(function() {
-  function split(val) {
-    return val.split(" ");
-  }
-
-  function extractLast(term) {
-    return split(term).pop();
-  }
-
-  $("#searchBox")
-    // don't navigate away from the field on tab when selecting an item
-    .on("keydown", function(event) {
-      if (
-        event.keyCode === $.ui.keyCode.TAB &&
-        $(this).autocomplete("instance").menu.active
-      ) {
-        event.preventDefault();
-      }
-    })
-    .autocomplete({
-      minLength: 2,
-      source: function(request, response) {
-        // delegate back to autocomplete, but extract the last term
-        response(
-          $.ui.autocomplete.filter(availableTags, extractLast(request.term))
-        );
-      },
-      focus: function() {
-        // prevent value inserted on focus
-        return false;
-      },
-      select: function(event, ui) {
-        var terms = split(this.value);
-        // remove the current input
-        terms.pop();
-        // add the selected item
-        terms.push(ui.item.value);
-        // add placeholder to get the comma-and-space at the end
-        terms.push("");
-        this.value = terms.join(" ");
-        return false;
-      }
-    });
 });
 
 //Larry's API work
