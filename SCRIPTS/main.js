@@ -1,290 +1,375 @@
-$(document).ready(function(){
+// Gloval Variables
+var appID = "36b1ec01"; // edamamAPI application ID
+var appKey = "08e02c12371df75898d0efdf6782b57e"; // edamamAPI application key
+var searchParam = ""; // the search param to use for the api query
+var excluded = ""; // ingredient to exclude from results (for future functionality)
+var diet = ""; // diet selector
+var health = ""; // health selector
+var from = 0; // index of the first result to return from the API
+var to = 5; // index of the last result to return from the API
+var space = "%20"; // use this instead of spaces between words
+var regEx = /[^a-zA-Z\s]/gi; //only letters and spaces
+var recipes = []; // holds an array of 'Recipe' objects that we fetched from the API
 
+// Constructor for individiual recipe objects created by the JSON import
+function Recipe(label, ingredients, image, url) {
+  this.label = label;
+  this.ingredients = ingredients;
+  this.image = image;
+  this.url = url;
+}
 
-});//End of document.ready()
-
-
-
-
-
-/*
-  //Stops Nav Suddenly Appearing on first click
-  $("#mobileNav").slideDown(0);
-  $("#mobileNav").slideUp(0);
-
-  //Used for cancelling out header animation when the page is
-  //scrolling due to the user clicking on the nav, as opposed to scrolling with mousewheel
-  fromNav = null;
-
-
-//Used for parallax image changing.
-  loc = window.location.href;
-  if(loc=="http://oldsoulswebdev.com/form-to-email.php") {
-    $('#bcg').css('background-image','url(../IMAGES/mountains.jpg)');
+// iterate over the ingredients list and creates an unordered list of ingredients
+Recipe.prototype.listIngredients = function() {
+  var ingList = $("<ul>");
+  for (var i = 0; i < this.ingredients.length; i++) {
+    var ing = $("<li>").text(this.ingredients[i].text);
+    ingList.append(ing);
   }
+  return ingList;
+};
 
+// builds the card items and appends them to the page (BULMA)
+Recipe.prototype.showRecipe = function() {
+  var link = $("<a>").attr({
+    href: this.url,
+    target: "_blank"
+  });
 
+  var ingredientDropdown = $("<div>")
+    .addClass("dropdown is-up")
+    .append([
+      $("<div>")
+        .addClass("dropdown-trigger")
+        .attr("title", "Click me!")
+        .append(
+          $("<button>")
+            .attr({
+              "aria-haspopup": "true",
+              "aria-controls": "dropdown-menu2",
+              class: "button is-inverted",
+              style: "border-width:0;"
+            })
+            .append([
+              $("<span>")
+                .addClass("icon is-small")
+                .append(
+                  $("<i>")
+                    .addClass("fas fa-utensils")
+                    .attr("aria-hidden", true)
+                ),
+              $("<span>").text("Ingredient List")
+            ])
+        ),
+      $("<div>")
+        .addClass("dropdown-menu")
+        .attr({
+          id: "dropdown-menu2",
+          role: "menu"
+        })
+        .append(
+          $("<div>")
+            .addClass("dropdown-content")
+            .append(
+              $("<div>")
+                .addClass("dropdown-item has-text-left")
+                .append(this.listIngredients())
+            )
+        )
+    ]);
 
+  var card = $("<div>")
+    .addClass("column")
+    .append(
+      $("<div>")
+        .addClass("card")
+        .append(
+          link.append([
+            $("<div>")
+              .addClass("card-image")
+              .append(
+                $("<figure>")
+                  .addClass("image is-square")
+                  .append($("<img>").attr("src", this.image))
+              ),
+            $("<div>")
+              .addClass("card-content card-header")
+              .append(
+                $("<div>")
+                  .addClass("title is-6 has-text-centered")
+                  .text(this.label)
+              )
+          ])
+        )
+        .append(
+          $("<p>")
+            .addClass("content card-li has-text-centered")
+            .append(ingredientDropdown)
+        )
+    );
+  $(".output").append(card);
+};
 
+// replaces the spaces in the string with "%20"
+function replaceSpaces(str) {
+  return str.split(" ").join("%20");
+}
 
-  //~~~~~~~~~~~~~~~~~~~~ SCROLLMAGIC SCENES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// removes numbers and special characters
+function removeNonLettes(str) {
+  return str.replace(regEx, "");
+}
 
-    // Init ScrollMagic
-    var controller = new ScrollMagic.Controller();
+// searchParam => contains lettes only and "%20" instead of spaces
+function parseSearchParam() {
+  searchParam = removeNonLettes(searchParam);
+  searchParam = replaceSpaces(searchParam);
+}
 
-    // build a scene
-    var fadeScene = new ScrollMagic.Scene({
-      triggerElement: '#about',
-      triggerHook: 0.65,
-      reverse:false
-    })
-    .setClassToggle('#about', 'fade-in') //add class to elem with about ID
-    .addTo(controller);
+// create Recipe objects from the API's json file and display them
+function apiSuccess(json) {
+  for (var i = 0; i < json.hits.length; i++) {
+    var recipe = new Recipe(
+      json.hits[i].recipe.label,
+      json.hits[i].recipe.ingredients,
+      json.hits[i].recipe.image,
+      json.hits[i].recipe.url
+    );
+    recipes.push(recipe);
+    recipe.showRecipe();
+  }
+}
 
+// zero-out the search fields and variables
+function initFields() {
+  $("#searchBox").val("");
+  $("#health").val("");
+  $("#diet").val("");
+  diet = "";
+  health = "";
+  $("#advancedAfter").hide();
+  $("#advancedBefore").show();
+}
 
-    // These are the functions for sliding in the why choose us reasons
-
-    var fadeScene2 = new ScrollMagic.Scene({
-      triggerElement: '#fade-left1', // what element the triggerHook needs to touch to activate
-      triggerHook: 0.65, // This pushes the trigger point (when things happen) lower
-      reverse:false // This is so that the setClassToggle doesnt toggle off anymore
-    })
-    .setClassToggle('#fade-left1', 'right') // append 'left' onto the class of whatever element has the ID of 'fade-left1'
-    .addTo(controller);
-
-
-    var fadeScene3 = new ScrollMagic.Scene({
-      triggerElement: '#fade-right',
-      triggerHook: 0.65,
-      reverse:false
-    })
-    .setClassToggle('#fade-right', 'right')
-    .addTo(controller);
-
-
-    var fadeScene4 = new ScrollMagic.Scene({
-      triggerElement: '#fade-left2',
-      triggerHook: 0.65,
-      reverse:false
-    })
-    .setClassToggle('#fade-left2', 'right')
-    .addTo(controller);
-
-    // ---------------------------------------------------------------------
-    // This is the Parallax Scene
-
-    var slideParallaxScene = new ScrollMagic.Scene({
-      triggerElement: '#bcg-parallax',
-      triggerHook:-100,
-      offset:-200,//Change this offset to alter when the parallax effect begins.
-      //Right now, I have it to where the effect stops just before the img leaves the screen.
-      duration: '120%',
-    })
-    .setTween(TweenMax.from('#bcg', 1, {y: '-40%', ease:Power0.easeNone}))
-    .addTo(controller)
-  //~~~~~~~~~~~~~~~~~~~~ End of ScrollMagic Effects ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //~~~~~~~~~~~~~~~~~~~~ HEADER SCROLLING LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var scrollAmount = 0;
-  var pixelsToTriggerExpand = 30;
-  var pixelsToTriggerContract = 430;
-
-    $(document).scroll(function(e){
-      //Ignore all this if the page is scrolling from a nav click, instead of typical mousewheel scrolling.
-      if (fromNav){
-          e.preventDefault();
-        }
-      else{
-          //This script determines when the header comes in or out.
-          var distance = $(window).scrollTop();
-          if(distance - scrollAmount > pixelsToTriggerContract){
-            //User is scrolling Down
-            scrollAmount = distance;
-            var $hamburger = $(".hamburger");
-
-          ////////// REMOVING HEADER  ///////////
-            //Don't scroll up the header if the hamburger menu is open.
-            if(!$hamburger.hasClass("is-active")){
-              $('#desktopNav a').slideUp(20);
-              $('header').slideUp();
-            }
-          }
-          ////////// INSERT HEADER  ///////////
-          if(distance < scrollAmount - pixelsToTriggerExpand){
-          //User is Scrolling Up
-            scrollAmount = distance;
-            $('#desktopNav a').slideDown(450);
-            $('header').slideDown();
-          }
-        }
-      });//End of document.scroll()
-
-
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~ This removes the "personal architect" banner so you can't see it through the transparent footer.~~~~~~~~~~~~~~~~~~~~~~~~~ //
-$(window).on('scroll', function() {
-    var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 550;             // set to whatever you want it to be
-
-    if(y_scroll_pos > scroll_pos_test) {
-        $('#jumboText').css("visibility", "hidden");
+// API
+function runAPI() {
+  var apiURL =
+    "https://api.edamam.com/search?app_id=" +
+    appID +
+    "&app_key=" +
+    appKey +
+    "&q=" +
+    searchParam +
+    "&from=" +
+    from +
+    "&to=" +
+    to +
+    diet; // the URL for the API to use
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    async: "false",
+    url: apiURL,
+    success: function(json) {
+      // on API success
+      apiSuccess(json);
+      $("#searchBox").attr("placeholder", "What are we making today?");
+      // opens ingredients dropdown on mouse click and closes on mouseout
+    },
+    error: function() {
+      // on API error
+      $("#moreResults").hide();
+      var msg = $("<img>")
+        .attr({
+          src: "./assets/images/error.jpg",
+          title: "Please try different search parameters"
+        })
+        .css({
+          "justify-content": "center",
+          position: "absolute",
+          right: "36%",
+          width: "350px",
+          "border-radius": "25px"
+        });
+      $(".output").append(msg);
+      initFields();
+      $("#searchBox").attr(
+        "placeholder",
+        "Please try different search parameters"
+      );
     }
-    else{
-      $('#jumboText').css("visibility", "visible");
-    }
-});
+  });
+}
 
+$("#notification").hide(); // hide the notification
+$("#advancedAfter").hide(); // hide the advanced options
+$("#moreResults").hide(); // hide the more results button
 
+$(document).ready(function() {
+  // show ingredients list on click
+  $(document).on("click", ".dropdown", function() {
+    this.classList.toggle("is-active");
+    $(this).mouseout(function() {
+      this.classList.remove("is-active");
+    });
+  });
 
+  // show advanced options
+  $("#advancedBefore").click(function() {
+    $("#advancedBefore").hide();
+    $("#advancedAfter").toggle("slide", 1000);
+  });
 
+  // jQueryUI toggle about notification area
+  $("#aboutLink").click(function() {
+    $("#notification").toggle("blind", 1000);
+  });
 
-  //~~~~~~~~~~~~~~~~~~~~ NAVIGATION LINK CLICK EVENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  $("a").on("click", function(){
-//Animate The Page
-      fromNav = true;
-      var loc = $(this).attr("href");
-       $('html, body').animate({
-         scrollTop: $(loc).offset().top
-     }, 1000);
-//======================
+  // closes the about notification area
+  $("#deleteBtn").click(function() {
+    $("#notification").toggle("blind", 1000);
+  });
 
-//Keep the header from sliding out when "Back To Top" is clicked. Else, slide it out.
-     if($(this).attr("class") == "backToTop"){
-      $('header').slideDown();
-      $('#desktopNav a').slideDown(430);
-     }
+  // displays more results to the user
+  $("#moreResults").click(function() {
+    $(this).addClass("is-loading");
+    setTimeout(function() {
+      $("#moreResults").removeClass("is-loading");
+    }, 2000);
+    $(".output").empty();
+    from += 5;
+    to += 5;
+    runAPI();
+  });
+  // update the search parameter on button click
+  $("#searchBtn").click(function() {
+    if ($("#searchBox").val() !== "") {
+      // init search range
+      $("#moreResults").hide();
+      from = 0;
+      to = 5;
+      setTimeout(function() {
+        $("#moreResults").show();
+      }, 3000);
 
-     else{
-       //Get the header out of here lul
-       $('header').slideUp();
-       $('#desktopNav a').slideUp(130);
-     }
-//==============
+      $(this).addClass("is-loading");
+      setTimeout(function() {
+        $("#searchBtn").removeClass("is-loading");
+      }, 2000);
 
-//Slide #mobileNav Up and Out
-     $('#mobileNav').slideUp();
-//Little #mobileNav Fix for when user minimizes hamburger menu and triggers header to slideOutUp
-     $('#mobileNav').css("top", "0");
-//Make the hamburger button return to resting state every time
-     $('.hamburger').toggleClass("is-active");
+      $(".output").empty();
+      recipes.length = 0;
+      searchParam = $("#searchBox").val();
 
+      parseSearchParam();
+      runAPI();
 
-     //reset "fromNav" to false after 1000ms has passed.
-     setTimeout(function () {
-      fromNav = false;
-    }, 1100);
-  });//End of a.onclick()
-
-
-
-
-
-
-
-
-
-
-  //~~~~~~~~~~~~~~~~~~~~ MOBILE NAV SLIDE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var $hamburger = $(".hamburger");
-  $hamburger.on("click", function() {
-    $hamburger.toggleClass("is-active");
-    if($hamburger.hasClass("is-active")){
-      //Slide #mobileNav In
-      $('#mobileNav').slideDown();
-      $('#mobileNav').css("visibility", "visible");
-    }
-
-    else{
-      //Slide #mobileNav Up and Out
-      $('#mobileNav').slideUp();
+      $(".search").animate(
+        {
+          "padding-top": "-=100px"
+        },
+        1500
+      );
     }
   });
 
-
-  //CLose #mobileNavigation if user clicks 'blank' space.
-  $("main, #bcg-parallax, #fadeImgSpacer").on("click", function(){
-    if($hamburger.hasClass("is-active")){
-        $('#mobileNav').slideUp();
-
-        $hamburger.removeClass("is-active");
-      };
-    });
-
-
-
-
-
-
-
-
-
-
-  //~~~~~~~~~~~~~~~~~~~~ ABOUT US DROPDOWN LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-      //When our image is clicked...
-      $('.mugshot').on("click", function(){
-        //Select the .desc to be expanded and open it
-        expandedDesc = $(this).next().next();
-        expandedDesc.delay(380).slideToggle();
-
-        //Flip The Arrow
-        flipArrow($(this));
+  // assign the diet variable the selected option from the select form
+  $("#diet")
+    .change(function() {
+      $("#diet option:selected").each(function() {
+        var str = $(this)
+          .text()
+          .toLowerCase();
+        if (str !== "") diet = "&diet=" + str;
+        else diet = "";
       });
+    })
+    .trigger("change");
 
-      function flipArrow(thisArgument){
-        // animate the corresponding bioArrow 180deg.
-        //Keep in mind, $(this) is still referring to .mugshot
-        animateThisArrow = thisArgument.parent().find(".bioArrow");
-        animateThisArrow.toggleClass("flip");
-        //De-Animate All Who Are Not The currently selected bioArrow
-        $(".bioArrow").not(animateThisArrow).removeClass("flip");
+  // assign the health variable the selected option from the select form
+  $("#health")
+    .change(function() {
+      $("#health option:selected").each(function() {
+        var str = $(this)
+          .text()
+          .toLowerCase();
+        if (str !== "") health = "&health=" + str;
+        else health = "";
+      });
+    })
+    .trigger("change");
 
-        //.... and close all other .descs, except for the one just clicked
-        $(".desc").not(expandedDesc).delay(380).slideUp();
+  //jQueryUI tooptip
+  $("#searchBox").tooltip({
+    show: {
+      effect: "slideDown",
+      delay: 1000
+    },
+    hide: {
+      effect: "slideUp",
+      delay: 100
+    },
+    track: true
+  });
+
+  // // clear out the search box on a mouse click
+  // $('#searchBox').click(function () {
+  //     $('#searchBox').val("");
+  // });
+
+  // // update the search parameter when the user presses the "ENTER" key (while focus is on the search box)
+  // $('#searchBox').keydown(function (event) {
+  //     if (event.keyCode == 13) {
+  //         searchParam = $('#searchBox').val();
+  //         parseSearchParam();
+  //         runAPI();
+  //         return false;
+  //     }
+  // });
+});
+
+// jQueryUI autocomplete
+$(function() {
+  function split(val) {
+    return val.split(" ");
+  }
+
+  function extractLast(term) {
+    return split(term).pop();
+  }
+
+  $("#searchBox")
+    // don't navigate away from the field on tab when selecting an item
+    .on("keydown", function(event) {
+      if (
+        event.keyCode === $.ui.keyCode.TAB &&
+        $(this).autocomplete("instance").menu.active
+      ) {
+        event.preventDefault();
       }
-
-
-
-      //When our arrow is clicked...
-      $('.bioArrow').on("click", function(){
-        expandedDescArrow = $(this).prev().slideToggle();
-        $(this).toggleClass("flip");
-
-        $(".bioArrow").not(this).removeClass("flip");
-        $(".desc").not(expandedDescArrow).delay(380).slideUp();
-      });//End of bioArrow click
-
-
-
-      //Close .desc when user clicks on #about blank space, unless hamburger menu is open (design choice)
-      var $mobileNav = $('#mobileNav');
-      $('.aboutUs').click(function(e){
-        if($(e.target).is('.mugshot, h3, span, .bioArrow')){
-          e.preventDefault();
-          return;
-        }
-
-
-        if(!$mobileNav.is(":visible")){
-          $('.desc').slideUp();
-          $(".bioArrow").removeClass("flip");
-        };
-      });
-
-});//End of document.ready()
-*/
+    })
+    .autocomplete({
+      minLength: 2,
+      source: function(request, response) {
+        // delegate back to autocomplete, but extract the last term
+        response(
+          $.ui.autocomplete.filter(availableTags, extractLast(request.term))
+        );
+      },
+      focus: function() {
+        // prevent value inserted on focus
+        return false;
+      },
+      select: function(event, ui) {
+        var terms = split(this.value);
+        // remove the current input
+        terms.pop();
+        // add the selected item
+        terms.push(ui.item.value);
+        // add placeholder to get the comma-and-space at the end
+        terms.push("");
+        this.value = terms.join(" ");
+        return false;
+      }
+    });
+});

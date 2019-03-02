@@ -18,24 +18,8 @@
     <script src="3rd_Party_Libraries\ScrollMagic\plugins\animation.gsap.min.js"></script>
     <!--  Custom Logic Script-->
     <script src="SCRIPTS/main.js"></script>
-
-
-    <!-- Font for the category introductions-->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--  Font for the jumboText-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <!--  Name Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
-    <!--  Radical Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <!--  Improves SEO-->
-    <meta name="description" content="Search for food and get nutrition info.">
-    <!--  Responsive Design-->
-    <meta name="viewport" content="width=device-width">
-    <!--  Character Encoding -->
-    <meta charset="utf-8">
-
   </head>
+
   <body>
     <div id="blackwrapper">
       <header>
@@ -46,9 +30,24 @@
 
       <div id="maindiv">
         <form>
-          <input id="searchbar" type="text" name="search" placeholder="e.g. Spaghetti and Meatballs">
-          <input id="searchbutton" type="button" value="Enter">
+          <input id="searchBox" type="text" name="search" placeholder="e.g. Spaghetti and Meatballs">
+          <input id="searchBtn" type="button" value="Enter">
         </form>
+
+        <div class="Adv-Opt">
+          <select id="diet">
+            <option></option>
+            <option>Balanced</option>
+            <option>High-Protein</option>
+            <option>Low-Carb</option>
+            <option>Low-Fat</option>
+            <option>Low-Sodium</option>
+          </select>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="output">
+        </div>
       </div>
     </div>
   </body>

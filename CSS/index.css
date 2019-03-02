@@ -22,7 +22,7 @@ form{
   text-align: center;
 }
 
-#searchbar{
+#searchBox{
   background-image:url("search_icon.png");
   padding: 12px 20px 12px 50px;
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@ form{
   transition: width 0.4s;
 }
 
-#searchbar:focus{
+#searchBox:focus{
   width: 32%;
 }
 
@@ -84,7 +84,7 @@ a{
   margin-left: 3%;
 }
 
-#searchbutton{
+#searchBtn{
   transition: transform 0.3s;
 
   text-align: center;
@@ -96,7 +96,7 @@ a{
   border-radius: 10px;
 }
 
-#searchbutton:hover{
+#searchBtn:hover{
   transition: transform 0.3s;
   background-color: white;
   -webkit-transform: scale(1.2);
