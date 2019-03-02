@@ -1,49 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Protein Pal</title>
-    <!-- Title Bar Image-->
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <!-- Stylesheet-->
-    <link rel="stylesheet" href="CSS/index.css">
-    <!-- Animate.css-->
-    <link rel="stylesheet" href="3rd_Party_Libraries/animate.css">
-    <!-- The ever-holy JQuery. -->
-    <script src="3rd_Party_Libraries/JQuery.js"></script>
-    <!-- The libraries for using super dank scroll functionality and GSAP libraries (which is used for parallaxing images)-->
-    <script src="3rd_Party_Libraries\ScrollMagic\ScrollMagic.min.js"></script>
-    <script src="3rd_Party_Libraries\ScrollMagic\plugins\GSAP_Tweening.js"></script>
-    <script src="3rd_Party_Libraries\ScrollMagic\plugins\animation.gsap.min.js"></script>
-    <!--  Custom Logic Script-->
-    <script src="SCRIPTS/main.js"></script>
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+
+<body>
+  <!-- SEARCH BOX -->
+  <input id="searchBox" class="input is-rounded is-focused clearable is-info" type="text" placeholder="What are we making today?"
+                                                                                          size="50" title="Yum Yum!">
+  <!-- SEARCH BUTTON -->
+  <button id="searchBtn" class="button is-info" type="submit">Search!</button>
+  <div class="Adv-Opt">
+    <select id="diet">
+      <option></option>
+      <option>Balanced</option>
+      <option>High-Protein</option>
+      <option>Low-Carb</option>
+      <option>Low-Fat</option>
+      <option>Low-Sodium</option>
+    </select>
+  </div>
+            <!-- OUTPUT -->
+            <div class="output">
+            </div>
 
 
-    <!-- Font for the category introductions-->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--  Font for the jumboText-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <!--  Name Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
-    <!--  Radical Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <!--  Improves SEO-->
-    <meta name="description" content="Professional web developers serving businesses near Springfield, Mo.">
-    <!--  Responsive Design-->
-    <meta name="viewport" content="width=device-width">
-    <!--  Character Encoding -->
-    <meta charset="utf-8">
+    <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
 
-  </head>
-  <body>
-    <main>
-      <h1 id="Title">Protein Pal</h1>
-
-    </main>
-
-
-    <form>
-      <input id="searchbar" type="text" name="search" placeholder="Search..">
-      <input type="button" value="Search">
-    </form>
-  </body>
+  <script src="./SCRIPTS/main.js"></script>
+</body>
 </html>
