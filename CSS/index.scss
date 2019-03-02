@@ -1,0 +1,692 @@
+@import "../3rd_Party_Libraries/Hamburgers/_hamburgers.scss";
+@import "_mixins.scss";
+
+// ------ MAIN CONTENT -------
+main{
+  overflow-x: hidden;
+}
+
+//------- BODY/HTML ----------
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../IMAGES/background_1_light.jpg");
+  width:100%;
+  height: 100%;
+}
+
+header {
+  //Header contains hamburger button, and logo.
+  position: fixed;
+  background-image: url("../IMAGES/background_1.jpg");
+  border-bottom: 3px solid rgb(183, 116, 7);
+  width: 100%;
+  height: 110px;
+}
+
+// ---------- NAVIGATION -------
+// -----------------------------
+
+.hamburger:focus{
+  outline:0;
+}
+
+#mobileNav{
+  position: relative;
+  visibility: hidden;
+  //Fix for when minimizing hamburger menu while the header is slidingOutUp
+  transition-property: top, bottom;
+  transition-duration: 0.5s;
+  z-index: 4;
+
+
+    a{//This is nested within #mobileNav
+      text-decoration:none;
+      color:rgb(183, 116, 7);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      transition: 0.2s all ease;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+}
+
+#headerWrapper{
+  position: relative;
+  z-index: 5;
+}
+
+//------ INTRO CONTENT --------
+// ---------------------------
+
+
+#jumboText{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  background-color: rgba(20,20,20,.7);
+  position: relative;
+}
+
+
+.introText{
+  padding-top: 2vw;
+  font-family: 'Raleway', sans-serif;
+  //font-family: 'Pacifico', cursive;
+  padding-bottom: 20px;
+  font-size: 200%;
+  margin: auto;
+  color: white;
+}
+
+  // -------- ABOUT US SECTION -------
+
+  .bio{
+    margin-bottom: 2vw;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+  }
+
+  .bioArrow{
+    transition: all .4s ease;
+    display: block;
+    width:90px;
+    margin: auto;
+  }
+  .flip{
+    transform: rotate(-180deg);
+  }
+
+  .mugshot{
+    -webkit-transition: all .4s ease; /* Safari and Chrome */
+    -moz-transition: all .4s ease; /* Firefox */
+    -ms-transition: all .4s ease; /* IE 9 */
+    -o-transition: all .4s ease; /* Opera */
+    transition: all .4s ease;
+  }
+
+  .mugshot:hover{
+    -webkit-transform:scale(1.08); /* Safari and Chrome */
+    -moz-transform:scale(1.08); /* Firefox */
+    -ms-transform:scale(1.08); /* IE 9 */
+    -o-transform:scale(1.08); /* Opera */
+     transform:scale(1.08);
+  }
+
+
+  .name{
+    padding-top: 4px;
+    width: 70%;
+    font-weight: bold;
+    font-size: 30px;
+    margin:auto;
+  }
+
+  .desc{
+    text-align: left;
+    display: none;
+    //Keep slideToggle() from making ugly twitching.
+      overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    padding-bottom: 8px;
+  }
+
+  .desc p{
+    font-family: "Source Sans Pro", Arial, Tahoma, sans-serif;
+    width: 95%;
+    color:white;
+    padding-left: 10px;
+    font-size: 18px;
+  }
+
+
+  .subject{
+    font-family: "Open Sans",Arial,sans-serif;
+    font-size: 23px;
+    display: block;
+    margin-top: 5.5%;
+    text-align: left;
+    color:rgb(183, 116, 7);
+  }
+
+  // -------------------------------
+//------------------------------------
+// SCROLLMAGIC Fading animation-------
+.about{
+  margin: auto;
+  padding-top:10px;
+  padding-bottom:10px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  width: 85%;
+}
+.about.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// first fade in for the fade in from the left
+.reason-wrapper{
+    opacity: 0;
+    transform: translateX(500px);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+.reason-wrapper.left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reason-wrapper2{
+  opacity: 0;
+  transform: translateX(-500px);
+  transition: all 1s ease-out;
+  padding-top:3%;
+}
+.reason-wrapper2.right{
+  opacity: 1;
+  transform: translateX(0);
+}
+//------------------------------------
+//------ The Why Us Section ----------
+
+.why{
+  background-color: rgba(20,20,20,.8);
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+
+.reason-right ul, .reason-left ul{
+  text-decoration:none;
+  list-style-type: none;
+}
+
+.reason-right, .reason-left{
+  width: 65%;
+  border-top: 3px solid rgb(183, 116, 7);
+  margin: 0 auto;
+  padding-bottom: 40px;
+  text-align: left;
+}
+
+.reason-text{
+  margin-top: 8px;
+  width:90%;
+  font-size: 21px;
+}
+
+.reason-subject{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px;
+}
+
+#ruler{
+  transform: rotate(330deg);
+  position:absolute;
+  height:100px;
+  width:170px;
+  top:2vw;
+  right:74%;
+}
+#phone{
+  transform: rotate(25deg);
+  height:160px;
+  width:140px;
+  position:absolute;
+  top:.1vw;
+  right:75%;
+}
+#rose{
+  transform: rotate(17deg);
+  height:160px;
+  width:110px;
+  position:absolute;
+  top:1.3vw;
+  right:76%;
+}
+// -------------------------------
+//------ The PORTFOLIO Section ----------
+
+.portfolio{
+  margin: 0 auto;
+}
+
+
+// --- The Contact Us Form ------------------
+
+.contact{
+  background-color: rgba(20,20,20,.8);
+  margin: 0 auto;
+}
+
+.formGutters{
+  margin-top:20px;
+}
+
+form span{
+  //"Required Field" styling
+  color:red;
+}
+
+
+textarea, input{
+  font-family:'Raleway', sans-serif;
+  padding-top:4px;
+  padding-bottom:4px;
+  font-size: 17px;
+}
+
+#howYouHear{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+label{
+  display: block;
+  text-align: left;
+  margin-top: -35px;
+}
+
+#radioWrapper_1{
+  width: 100%;
+  margin: auto;
+}
+#radioWrapper_2{
+  margin: auto;
+  width:320px;
+}
+
+.radioText{
+  font-size: 20px;
+}
+
+label,#mouth{
+  padding-top: 20px;
+}
+
+#formEmail{
+  width: 200px;
+}
+
+#other{
+  font-size: 15px;
+}
+
+#formSubmit{
+  padding-left:10px;
+  padding-right: 10px;
+  margin-top:15px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  transition: 0.15s all ease;
+  background-color: rgb(200,200,200);
+  border-radius: 7px;
+
+}
+#formSubmit:hover{
+  background-color: rgb(183, 116, 7);
+}
+
+textarea{
+  width:60%;
+}
+
+#dontBite{
+  padding-bottom: 20px;
+}
+
+// ---------------------------------
+// SCROLLMAGIC Section styling------
+section {
+  text-align: center;
+  color: #EFEFEF;
+}
+
+//--------------
+
+//------ FOOTER ----------
+footer{
+  width:100%;
+  background-color: rgba(99, 132, 249, 0.74);
+  text-align: center;
+
+    h2{
+      font-size: 13px;
+    }
+}
+
+.footerPhrase{
+  padding-top: 15px;
+}
+.backToTop{
+  color: rgb(176, 116, 19);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+
+/////////////////////////////////////////////////////////////
+//////////////////      Media Queries     //////////////////
+////////////////////////////////////////////////////////////
+
+/* Internet Explorer Query (IE 10+ doesn't support if(IE) {...} conditionals)*/
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  #bcg-parallax{
+    background-repeat: no-repeat;
+    background-image: url('../IMAGES/background_veg.jpg');
+    padding: 45vh 0;
+  }
+
+  #bcg{
+    display: none;
+  }
+}
+
+
+/* Large Smartphones */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  @include mobileIntro;//This replaced the parallax for mobile broswers.
+
+  $headerHeight: 60px;
+
+  #desktopNav{
+    display: none;
+  }
+
+  header{
+    text-align: center;
+    height: $headerHeight;
+  }
+
+  #logo{
+    display: inline-block;
+    position: relative;
+    width:$headerHeight * 2.7;
+    top:$headerHeight*.05;
+  }
+
+  #mobileNav{
+    margin-top: $headerHeight;
+    background-color: rgba(0,0,0,.75);
+    position: fixed;
+      li{
+        margin-top: 20px;
+      }
+    }
+
+
+    .hamburger{
+      visibility: visible;
+      position: absolute;
+      top:$headerHeight / 4;
+      left: 0;
+      margin-left: 25px;
+    }
+
+  #jumboText{
+    font-size: 30px;
+    top:40%;
+  }
+
+  .introText{
+    font-size: 228%;
+  }
+
+  .mugshot{
+    height:50%;
+    width:50%;
+    border-radius: 50%;
+  }
+
+  .desc p{
+    font-size: 14px;
+  }
+  .reason-right, .reason-left{
+    width: 85%;
+  }
+  #ruler{
+    display: none;
+  }
+  #phone{
+    display: none;
+  }
+  #rose{
+    display: none;
+  }
+
+  .reason-text{
+    margin-top: 8px;
+    width:90%;
+    font-size: 13px;
+  }
+
+  textarea{
+    width:89%;
+  }
+}
+
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
+  @include mobileIntro;//This replaced the parallax for mobile broswers.
+
+  $headerHeight: 90px;
+
+  #desktopNav{
+    display: none;
+  }
+
+  header{
+    text-align: center;
+    height: $headerHeight;
+  }
+
+  #logo{
+    display: inline-block;
+    position: relative;
+    width:$headerHeight * 2.9
+  }
+
+  #mobileNav{
+    margin-top: $headerHeight;
+    background-color: rgba(0,0,0,.75);
+    position: fixed;
+      li{
+        margin-top: 25px;
+      }
+    }
+
+
+  .hamburger{
+    visibility: visible;
+    position: absolute;
+    top:$headerHeight / 3;
+    left: 0;
+    margin-left: 30px;
+  }
+
+  #jumboText{
+    font-size: 54px;
+    top:37%;
+  }
+
+  .bio{
+    display: inline-block;
+    position: relative;
+    margin-top:1vw;
+    width:38%;
+  }
+
+  .mugshot{
+    width:30vw;
+    height:30vw;
+    border-radius: 50%;
+  }
+
+  .desc{
+    position: relative;
+  }
+
+  .desc.cole{
+    width:139%;
+    right:30%;
+    float:left
+  }
+  .desc.zach{
+    width:139%;
+    right:8%;
+    float:left
+  }
+  .desc.larry{
+    width:190%;
+    right:45%;
+    float:left;
+    padding-top:20px;
+  }
+
+//The Why Us Images
+  #ruler{
+    transform: rotate(330deg);
+    position:absolute;
+    height:65px;
+    width:112px;
+    top:5.5vw;
+    right:85%;
+  }
+  #phone{
+    transform: rotate(25deg);
+    position: absolute;
+    height:105px;
+    width:94px;
+    top:2.5vw;
+    right:86.5%;
+  }
+  #rose{
+    transform: rotate(21deg);
+    position: absolute;
+    height:105px;
+    width:95px;
+    top:2.5vw;
+    right:86.5%;
+  }
+}
+
+
+
+/* Desktop */
+@media only screen and (min-width: 1367px) and (max-width: 9920px){
+  //~~~~~~~~~~~~~Parralax Stuff (Desktop only now)~~~~~~~~~~~~~~//
+        #bcg-parallax{
+          padding: 50vh 0 50vh 0;
+          color:#fff;
+          background-color:#000;
+          text-align:center;
+          position:relative;
+          overflow: hidden;
+        }
+
+        #bcg{
+          background-image: url('../IMAGES/background_veg.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          position: absolute;
+          height: 115%;
+          width: 100%;
+          top: 20%;
+          opacity: 0.7;
+        }
+
+
+  $headerHeight: 100px;
+
+  #mobileNav{
+    display: none;
+  }
+  .hamburger{
+    visibility: hidden;
+  }
+
+
+  header{
+    text-align: left;
+    height: $headerHeight;
+  }
+
+  #logo{
+    display: inline-block;
+    position: relative;
+    width:$headerHeight * 2.7;
+    top:$headerHeight*.05;
+  }
+
+  #desktopNav{
+    position: fixed;
+    z-index: 5;
+    right: 20px;
+    padding-top:$headerHeight * .76;
+  }
+
+  #desktopNav a{
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    color:white;
+    font-size: 23px;
+    position: relative;
+    transition: 0.2s all ease;
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 0px;
+  }
+
+  #desktopNav a:hover{
+    color:rgb(183, 116, 7);
+    bottom:3px;
+  }
+
+  #jumboText{
+    font-size: 54px;
+    width:100%;
+    bottom:4vw;
+  }
+
+  .bio{
+    display: inline-block;
+    position: relative;
+    margin-top:1vw;
+    width:22%;
+  }
+
+  .mugshot{
+    width:15vw;
+    height:15vw;
+    border-radius: 50%;
+  }
+
+  .desc{
+    width:145%;
+    position: relative;
+    right:22.5%;
+    //Keep from moving other .bio containers
+    float:left
+  }
+
+  .reason-right, .reason-left{
+    width: 45%;
+  }
+  // footer{
+  //   height: 20px;
+  // }
+}

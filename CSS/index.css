@@ -1,0 +1,32 @@
+html {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+main{
+  text-align: center;
+  background-color: red;
+  background-image: url("IMAGES/background_veg.jpg");
+}
+
+form{
+  width:500px;
+  margin:50px auto;
+  text-align: center;
+}
+
+#searchbar{
+  background-image: url("IMAGES/search_icon.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+#Title{
+  margin: 0;
+  text-align: center;
+}
