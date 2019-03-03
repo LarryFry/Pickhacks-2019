@@ -16,7 +16,7 @@
 
       // If result matched $myusername and $mypassword, table row must be 1 row
 
-      if($result) {
+      if($result->num_rows>0) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
          $_SESSION['user_id'] = $result->fetch_all()[0][0];
@@ -59,12 +59,12 @@
   <body>
   	<div id="blackwrapper_php">
   	  <header>
-  		    <h1 id="Title">Just Recipes</h1>
-          <a id="Signup_php" href = "newUser.php">Signup</a>
+        <h1 id="Title"><a href="index.php">Just Recipes</a></h1>
+        <a id="Signup_php" href = "newUser.php">Signup</a>
   	  </header>
 
       <div align = "center">
-         <div style = "width:300px;" align = "left">
+         <div style = "width:30%;" align = "left">
           <div style = "background-color:#333333; color:#FFFFFF;"></div>
           <div style = "margin:30px">
              <form action = "" method = "post" autocomplete = "off">
@@ -72,7 +72,7 @@
                 <label class="login_instr">Password  : </label><input class="loginBox_php" type = "password" name = "password" class = "box" /><br/><br />
                 <input type = "submit" value = "Submit"/><br />
              </form>
-             <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+             <div style = "font-size:17px; color:white; background-color: red; border-radius: 5px; text-align: center; margin-top:15px"><?php echo $error; ?></div>
           </div>
          </div>
       </div>
