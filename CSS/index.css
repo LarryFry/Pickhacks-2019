@@ -131,22 +131,6 @@ option:hover {
   text-align: center;
 }
 
-#Recipes{
-  color:white;
-  margin:0;
-  margin-left: 54%;
-}
-
-a{
-  text-decoration: none;
-}
-
-#Ingredients{
-  color:white;
-  margin:0;
-  margin-left: 3%;
-}
-
 #searchBtn{
 	border-radius: 4px;
   background-color: #f4511e;
@@ -174,22 +158,26 @@ a{
 
 /* CARD CSS -------------------------------------------------------------------------*/
 .card{
-	text-align:center;
-
+  text-align:center;
+  margin: 0;
 }
 
+
 .image.is-square{
-	margin:0;
-	width:300px;
-	background-color:purple;
+    margin:0 auto;
+    width:300px;
+    background-color:purple;
 }
 
 .card-image{
-	margin:0;
-	background-color:red;
+    margin:0;
+    background-color:red;
+  margin:0 auto;
 }
 
 .cardContainer{
-  margin: 0 auto;
+  margin:0 auto;
   background-color: blue;
+  display: block;
+  width:40%;
 }
