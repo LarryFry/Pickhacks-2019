@@ -10,7 +10,8 @@
 
       if($result->num_rows >0) {
          //header("location: login.php");
-         //echo $result->fetch_all()[0][0];
+         echo('<h1 style="color:white;">Favorite recipe: ' . $result->fetch_all()[0][0] . '</h1>');
+
       }
 ?>
 

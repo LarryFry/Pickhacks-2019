@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Protein Pal</title>
+    <title>Just Recipes</title>
     <meta charset="UTF-8">
     <!-- Title Bar Image-->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />

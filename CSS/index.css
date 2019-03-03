@@ -51,9 +51,10 @@ form{
   color: #f4511e;
 }
 
-#Signout:hover{
+#Signout a:hover{
   color: #f4511e;
 }
+
 #Signout a{
   text-decoration: none;
   color:white;
