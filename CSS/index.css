@@ -158,20 +158,21 @@ option:hover {
 
 /* CARD CSS -------------------------------------------------------------------------*/
 .card{
-  text-align:center;
-  margin: 0;
+  text-align: left;
+
 }
 
-
+.out-container{
+  background-color: yellow;
+  border: 10px solid black;
+}
 .image.is-square{
     margin:0 auto;
     width:300px;
-    background-color:purple;
 }
 
 .card-image{
-    margin:0;
-    background-color:red;
+  background-color:red;
   margin:0 auto;
 }
 

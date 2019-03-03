@@ -268,11 +268,19 @@ $(document).ready(function() {
     })
     .trigger("change");
 
-    
+
 
 });
-
-
+/* CAROUSEL FUNCTIONALITY */
+$(document).ready(function(){
+    $('.card').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
+});
 /*------------------------------
 	Cole's custom GUI logic w/JQuery
 ------------------------------*/
@@ -312,5 +320,5 @@ function nutritionixSearch(data){
 
 
 function ingredientStorage(currentRecipe, currentIngredient){
-  console.log(currentRecipe +" "+ currentIngredient);  
+  console.log(currentRecipe +" "+ currentIngredient);
 };
