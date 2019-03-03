@@ -230,10 +230,6 @@
         <input id="favorite" type="button" value="Favorite">
         <section class="vertical-center slider" id="output">
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 47fe89782bd3178ce69ecd008a17f6b3a4612a81
         </section>
 
 	  </div>
