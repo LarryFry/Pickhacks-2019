@@ -3,7 +3,6 @@
   <head>
     <title>Protein Pal</title>
     <meta charset="UTF-8">
-    <!--THIS IS A MEME -->
     <!-- Title Bar Image-->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
@@ -226,12 +225,17 @@
         </p>
 
       </section>
+        <input id="favorite" type="button" value="Favorite">
         <section class="vertical-center slider" id="output">
 
+<<<<<<< HEAD
           
 
+=======
+>>>>>>> 302d860c23df50b08a9eb7bfaeee76e99bc4909c
 
         </section>
+
 	  </div>
   </div>
 
