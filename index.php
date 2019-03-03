@@ -3,7 +3,6 @@
   <head>
     <title>Protein Pal</title>
     <meta charset="UTF-8">
-    <!--THIS IS A MEME -->
     <!-- Title Bar Image-->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
@@ -27,7 +26,7 @@
   <body>
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title"></h1>
+  		    <h1 id="Title">Just Recipes</h1>
   	  </header>
 
   	   <div id="maindiv">
@@ -226,14 +225,12 @@
         </p>
 
       </section>
+        <input id="favorite" type="button" value="Favorite">
         <section class="vertical-center slider" id="output">
-
-              <div>
-                <img src="http://placehold.it/350x100?text=1">
-              </div>
 
 
         </section>
+
 	  </div>
   </div>
 

@@ -107,20 +107,14 @@ Recipe.prototype.showRecipe = function() {
     );
   $("#output").append(card);
 $('.vertical-center').slick('unslick');
+showButton();
 sliderInit();
 
   };
 
-// var card = $("<div>")
-//   .append(    $("<img>")
-//                 .addClass("image is-square")
-//                 .attr("src", this.image)
-//          )
-// $("#output").append(card);
-// $('.vertical-center').slick('unslick');
-// sliderInit();
-//
-// };
+  function showButton(){
+    document.getElementById("favorite").style.display='block';
+  }
 
 // replaces the spaces in the string with "%20"
 function replaceSpaces(str) {
