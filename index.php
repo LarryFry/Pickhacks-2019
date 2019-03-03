@@ -26,7 +26,7 @@
   <body>
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title">Just Recipes</h1>
+  		    <h1 id="Title"><a href="index.php">Just Recipes</a></h1>
   	  </header>
 
   	   <div id="maindiv">
