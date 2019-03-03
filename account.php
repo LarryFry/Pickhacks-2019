@@ -1,23 +1,23 @@
 <?php
    include('session.php');
    $error = "";
-   
-      // username and password sent from form 
+
+      // username and password sent from form
       //echo $_SESSION['user_id'];
       $sql = "SELECT recipeName,url,img FROM recipes JOIN users ON recipes.userID = users.id WHERE userID = '$_SESSION[user_id]'";
-      $result = mysqli_query($db,$sql);  
+      $result = mysqli_query($db,$sql);
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+
       if($result->num_rows >0) {
-         //header("location: login.php"); 
+         //header("location: login.php");
          echo $result->fetch_all()[0][0];
       }
-   
+
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Protein Pal</title>
+    <title>Just Recipes</title>
     <meta charset="UTF-8">
 
     <!-- Title Bar Image-->
@@ -36,14 +36,14 @@
   </head>
 
   <body>
-  
+
   	<div id="blackwrapper">
   	  <header>
   		    <h1 id="Title">Protein Pal</h1>
          <h2 id="Title2"><a href = "logout.php">Sign Out</a></h2>
   	  </header>
 
-  	   
+
 
 	  </div>
   </div>

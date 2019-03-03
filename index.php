@@ -26,7 +26,9 @@
   <body>
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title">Just Recipes</h1>
+  		    <h1 id="Title"><a href="index.php">Just Recipes</a></h1>
+          <a id="Login" href="login.php">Login</a>
+          <a id="Signup" href = "newUser.php">Signup</a>
   	  </header>
 
   	   <div id="maindiv">
@@ -227,7 +229,6 @@
       </section>
         <input id="favorite" type="button" value="Favorite" onclick="newFav()">
         <section class="vertical-center slider" id="output">
-
 
         </section>
 
