@@ -27,7 +27,7 @@
   <body>
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title"></h1>
+  		    <h1 id="Title">Just Recipes</h1>
   	  </header>
 
   	   <div id="maindiv">
@@ -228,9 +228,7 @@
       </section>
         <section class="vertical-center slider" id="output">
 
-              <div>
-                <img src="http://placehold.it/350x100?text=1">
-              </div>
+          
 
 
         </section>

@@ -348,3 +348,19 @@ function nutritionixSearch(data){
 function ingredientStorage(currentRecipe, currentIngredient){
   console.log(currentRecipe +" "+ currentIngredient);
 };
+
+
+//new favorite dish
+function newFav(){
+    favXML = new XMLHttpRequest();
+    var info = "chicken";
+  
+    }
+    favXML.onreadystatechange = function() {
+        if (this.status == 200) {
+            //document.getElementById("txtHint").innerHTML = this.responseText;
+        };
+    
+        favXML.open("POST","favorite.php",true);
+        favXML.send("info="+info);
+};
