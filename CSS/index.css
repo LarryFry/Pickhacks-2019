@@ -127,7 +127,15 @@ option:hover {
   display: inline-block;
   margin-left: 5%;
 }
-
+#Title2{
+  margin-top: 40px;
+  border: 0;
+  padding: 0;
+  color:white;
+  font-size: 30px;
+  font-family: 'Oswald', sans-serif;
+  float: right;
+}
 #maindiv{
   width:100%;
   text-align: center;

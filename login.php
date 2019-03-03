@@ -10,19 +10,20 @@
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
       $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      
+      $result = mysqli_query($db,$sql);      
       
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
-      if($count == 1) {
+      if($result) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
+         $_SESSION['user_id'] = $result->fetch_all()[0][0];
+
          echo $myusername;
          
-         header("location: welcome.php");
+         header("location: account.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
