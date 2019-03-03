@@ -271,19 +271,13 @@ $(document).ready(function() {
 
 
 });
-/* CAROUSEL FUNCTIONALITY */
-$(document).ready(function(){
-    $('.card').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      fade: true,
-      cssEase: 'linear'
-    });
+
+/*HARDCODED CAROUSEL STUFF*/
+$(document).on('ready', function() {
+  $(".vertical-center").slick({
+    dots: true,
+  });
 });
-/*------------------------------
-	Cole's custom GUI logic w/JQuery
-------------------------------*/
 
 
 //Larry's API work
