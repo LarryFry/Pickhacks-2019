@@ -30,21 +30,6 @@ form{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .Adv-Opt{
   display: inline-block;
 	border: 1px solid #ccc;
@@ -148,22 +133,6 @@ option:hover {
   text-align: center;
 }
 
-#Recipes{
-  color:white;
-  margin:0;
-  margin-left: 54%;
-}
-
-a{
-  text-decoration: none;
-}
-
-#Ingredients{
-  color:white;
-  margin:0;
-  margin-left: 3%;
-}
-
 #searchBtn{
 	border-radius: 4px;
   background-color: #f4511e;
@@ -191,24 +160,62 @@ a{
 
 /* CARD CSS -------------------------------------------------------------------------*/
 .card{
-	text-align:center;
+  text-align: left;
 
 }
 
+.out-container{
+  background-color: yellow;
+  border: 10px solid black;
+}
 .image.is-square{
-	margin:0;
-	width:300px;
-	background-color:purple;
+    margin:0 auto;
+    width:300px;
 }
 
 .card-image{
-	margin:0;
-	background-color:red;
+  background-color:red;
+  margin:0 auto;
 }
 
 .cardContainer{
-  margin: 0 auto;
+  margin:0 auto;
   background-color: blue;
+  display: block;
+  width:40%;
+}
+
+/* SLICK CAROUSEL ----------------------------------------*/
+.slider {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
 }
 
 

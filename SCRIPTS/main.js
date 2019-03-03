@@ -268,14 +268,16 @@ $(document).ready(function() {
     })
     .trigger("change");
 
-    
+
 
 });
 
-
-/*------------------------------
-	Cole's custom GUI logic w/JQuery
-------------------------------*/
+/*HARDCODED CAROUSEL STUFF*/
+$(document).on('ready', function() {
+  $(".vertical-center").slick({
+    dots: true,
+  });
+});
 
 
 //Larry's API work
@@ -328,5 +330,5 @@ function nutritionixSearch(data){
 
 
 function ingredientStorage(currentRecipe, currentIngredient){
-  console.log(currentRecipe +" "+ currentIngredient);  
+  console.log(currentRecipe +" "+ currentIngredient);
 };
