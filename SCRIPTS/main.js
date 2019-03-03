@@ -346,8 +346,9 @@ function ingredientStorage(currentRecipe, currentIngredient){
 
 //new favorite dish
 function newFav(){
+    alert("SKEET");
     favXML = new XMLHttpRequest();
-    favXML.open("GET",'./favorite.php',true);
+    favXML.open("POST",'./favorite.php',true);
     var info = "chicken";
     info = '{"info":"'+info+'"}';
 
