@@ -313,6 +313,22 @@ function nutritionixSearch(data){
       //parsing and workng with the JSON
       var jsonResponse = JSON.parse(xhr.responseText);
       console.log(jsonResponse.foods[0]);
+      document.getElementById("calories").innerHTML="Calories "+jsonResponse.foods[0].nf_calories;
+      document.getElementById("ServingSize").innerHTML = "Serving Size "+ jsonResponse.foods[0].serving_qty + " " + jsonResponse.foods[0].serving_unit;
+      document.getElementById("totalFat").innerHTML = "Total Fat "+ jsonResponse.foods[0].nf_total_fat + "g";
+      document.getElementById("totalFatPercent").innerHTML = ((jsonResponse.foods[0].nf_total_fat/65)*100).toFixed(2)+"%";
+      document.getElementById("saturatedFat").innerHTML = "Saturated Fat " + jsonResponse.foods[0].nf_saturated_fat + "g";
+      document.getElementById("saturatedFatPercent").innerHTML = ((jsonResponse.foods[0].nf_saturated_fat/20)*100).toFixed(2)+"%";
+      document.getElementById("cholesterol").innerHTML = "Cholesterol "+jsonResponse.foods[0].nf_cholesterol + "mg";
+      document.getElementById("cholesterolPercent").innerHTML = ((jsonResponse.foods[0].nf_cholesterol/300)*100).toFixed(2)+"%";
+      document.getElementById("sodium").innerHTML = "Sodium "+jsonResponse.foods[0].nf_sodium +"mg";
+      document.getElementById("sodiumPercent").innerHTML = ((jsonResponse.foods[0].nf_sodium/2400)*100).toFixed(2)+"%";
+      document.getElementById("totalCarbs").innerHTML = "Total Carbohydrates " + jsonResponse.foods[0].nf_total_carbohydrate+"g";
+      document.getElementById("totalCarbsPercent").innerHTML = ((jsonResponse.foods[0].nf_total_carbohydrate/300)*100).toFixed(2)+"%";
+      document.getElementById("fiber").innerHTML = "Dietary Fiber " + jsonResponse.foods[0].nf_dietary_fiber + "g";
+      document.getElementById("fiberPercent").innerHTML = ((jsonResponse.foods[0].nf_dietary_fiber/25)*100).toFixed(2)+"%";
+      document.getElementById("sugar").innerHTML = "Sugars "+jsonResponse.foods[0].nf_sugars +"g";
+      document.getElementById("protein").innerHTML =  "Protein "+jsonResponse.foods[0].nf_protein + "g";
     } else {
       console.log(this.status);
     }
