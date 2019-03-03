@@ -289,31 +289,9 @@ function sliderInit(){
 
 $(document).on('ready', function() {
   $(".vertical-center").slick({
-    dots: true,
   });
 });
 
-
-/*Cole's Recipe JQuery stuff*/
-$.fn.followTo = function (pos) {
-    var $this = this,
-        $window = $(window);
-
-    $window.scroll(function (e) {
-        if ($window.scrollTop() > pos) {
-            $this.css({
-              position: 'fixed'
-            });
-        } else {
-            $this.css({
-              position:'relative',
-              top: pos
-            });
-        }
-    });
-};
-
-$('.performance-facts').followTo(130);
 
 
 //Larry's API work
