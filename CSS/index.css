@@ -51,6 +51,18 @@ form{
   color: #f4511e;
 }
 
+#Signout:hover{
+  color: #f4511e;
+}
+#Signout a{
+  text-decoration: none;
+  font-size: 23px;
+  font-family: 'Oswald', sans-serif;
+  color:white;
+  margin-left: 62%;
+  float:right;
+}
+
 #Signup_php{
   text-decoration: none;
   font-size: 23px;

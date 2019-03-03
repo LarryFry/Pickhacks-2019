@@ -10,7 +10,7 @@
 
       if($result->num_rows >0) {
          //header("location: login.php");
-         echo $result->fetch_all()[0][0];
+         //echo $result->fetch_all()[0][0];
       }
 
 ?>
@@ -39,8 +39,8 @@
 
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title">Protein Pal</h1>
-         <h2 id="Title2"><a href = "logout.php">Sign Out</a></h2>
+        <h2 id="Signout" ><a href = "logout.php">Sign Out</a></h2>
+  		    <h1 id="Title">Just Recipes</h1>
   	  </header>
 
 
