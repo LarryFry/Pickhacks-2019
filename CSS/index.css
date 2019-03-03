@@ -199,7 +199,19 @@ option:hover {
   display: block;
   width:40%;
 }
+.ingredients{
+  font-weight: bold;
+}
 
+.recipe-name{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.ing-text{
+text-align: center;
+}
 /* SLICK CAROUSEL ----------------------------------------*/
 .vertical-center{
   position: relative;

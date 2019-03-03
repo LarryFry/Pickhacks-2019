@@ -47,13 +47,7 @@ Recipe.prototype.showRecipe = function() {
       $("<div>")
         .addClass("dropdown-trigger")
         .append(
-          $("<button>")
-            .attr({
-              "aria-haspopup": "true",
-              "aria-controls": "dropdown-menu2",
-              class: "button is-inverted",
-              style: "border-width:0;"
-            })
+          $("<h2>").addClass("ing-text")
             .append([
               $("<span>")
                 .addClass("icon is-small")
@@ -99,15 +93,15 @@ Recipe.prototype.showRecipe = function() {
             $("<div>")
               .addClass("card-content card-header")
               .append(
-                $("<div>")
-                  .addClass("title is-6 has-text-centered")
+                $("<h1>")
+                  .addClass("recipe-name")
                   .text(this.label)
               )
           ])
         )
         .append(
           $("<p>")
-            .addClass("content card-li has-text-centered")
+            .addClass("ingredients")
             .append(ingredientDropdown)
         )
     );
