@@ -197,15 +197,11 @@ option:hover {
   font-family: 'Oswald', sans-serif;
   display: inline-block;
   margin-left: 5%;
+  text-decoration: none;
 }
-#Title2{
-  margin-top: 40px;
-  border: 0;
-  padding: 0;
-  color:white;
-  font-size: 30px;
-  font-family: 'Oswald', sans-serif;
-  float: right;
+#Title a {
+  text-decoration: none;
+  color:inherit;
 }
 #maindiv{
   width:100%;
@@ -290,6 +286,23 @@ option:hover {
 .ing-text{
 text-align: center;
 }
+#favorite{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  width: 10%;
+  transition: all 0.2s;
+  cursor: pointer;
+	margin-left: 17%;
+	font-family: 'Merriweather Sans', sans-serif;
+
+  display: none;
+
+}
 /* SLICK CAROUSEL ----------------------------------------*/
 .vertical-center{
   position: relative;
@@ -298,7 +311,7 @@ text-align: center;
 .slider {
   transition: all 4s;
   position: relative;
-  top:70px;
+  top:50px;
   left:5%;
   width: 35%;
 }
