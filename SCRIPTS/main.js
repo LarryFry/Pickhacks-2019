@@ -82,48 +82,51 @@ Recipe.prototype.showRecipe = function() {
         )
     ]);
 
-//   var card = $("<div>")
-//     .addClass("cardContainer")
-//     .append(
-//       $("<div>")
-//         .addClass("card")
-//         .append(
-//           link.append([
-//             $("<div>")
-//               .addClass("card-image")
-//               .append(
-//                 $("<figure>")
-//                   .addClass("image is-square")
-//                   .append($("<img>").attr("src", this.image))
-//               ),
-//             $("<div>")
-//               .addClass("card-content card-header")
-//               .append(
-//                 $("<div>")
-//                   .addClass("title is-6 has-text-centered")
-//                   .text(this.label)
-//               )
-//           ])
-//         )
-//         .append(
-//           $("<p>")
-//             .addClass("content card-li has-text-centered")
-//             .append(ingredientDropdown)
-//         )
-//     );
-//   $("#output").append(card);
-// };
-
-var card = $("<div>")
-  .append(    $("<img>")
-                .addClass("image is-square")
-                .attr("src", this.image)
-         )
-$("#output").append(card);
+  var card = $("<div>")
+    .addClass("cardContainer")
+    .append(
+      $("<div>")
+        .addClass("card")
+        .append(
+          link.append([
+            $("<div>")
+              .addClass("card-image")
+              .append(
+                $("<figure>")
+                  .addClass("image is-square")
+                  .append($("<img>").attr("src", this.image))
+              ),
+            $("<div>")
+              .addClass("card-content card-header")
+              .append(
+                $("<div>")
+                  .addClass("title is-6 has-text-centered")
+                  .text(this.label)
+              )
+          ])
+        )
+        .append(
+          $("<p>")
+            .addClass("content card-li has-text-centered")
+            .append(ingredientDropdown)
+        )
+    );
+  $("#output").append(card);
 $('.vertical-center').slick('unslick');
 sliderInit();
 
-};
+  };
+
+// var card = $("<div>")
+//   .append(    $("<img>")
+//                 .addClass("image is-square")
+//                 .attr("src", this.image)
+//          )
+// $("#output").append(card);
+// $('.vertical-center').slick('unslick');
+// sliderInit();
+//
+// };
 
 // replaces the spaces in the string with "%20"
 function replaceSpaces(str) {
