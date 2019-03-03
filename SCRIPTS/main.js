@@ -328,8 +328,8 @@ function nutritionixSearch(data){
 
   // API Key
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  xhr.setRequestHeader('x-app-id', '490acc30');
-  xhr.setRequestHeader('x-app-key', '7af20e0b7ebcc7904c66e1cad2d51db8');
+  xhr.setRequestHeader('x-app-id', '3d3fc303');
+  xhr.setRequestHeader('x-app-key', '1bd34df9589ac1985af63cf9430863ce');
   xhr.setRequestHeader('x-remote-user-id', 'larryfry');
   xhr.setRequestHeader('accept', 'application/json');
   //xhr.responseType = 'json';
@@ -347,7 +347,7 @@ function ingredientStorage(currentRecipe, currentIngredient){
 //new favorite dish
 function newFav(){
     favXML = new XMLHttpRequest();
-    favXML.open("GET",'./favorite.php',true);
+    favXML.open("POST",'favorite.php',true);
     var info = "chicken";
     info = '{"info":"'+info+'"}';
 
