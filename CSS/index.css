@@ -56,11 +56,7 @@ form{
 }
 #Signout a{
   text-decoration: none;
-  font-size: 23px;
-  font-family: 'Oswald', sans-serif;
   color:white;
-  margin-left: 62%;
-  float:right;
 }
 
 #Signup_php, #Signout{
