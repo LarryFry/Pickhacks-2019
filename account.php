@@ -39,8 +39,8 @@
 
   	<div id="blackwrapper">
   	  <header>
-        <h2 id="Signout" ><a href = "logout.php">Sign Out</a></h2>
   		    <h1 id="Title">Just Recipes</h1>
+          <h2 id="Signout" ><a href = "logout.php">Sign Out</a></h2>
   	  </header>
 
 

@@ -63,7 +63,7 @@ form{
   float:right;
 }
 
-#Signup_php{
+#Signup_php, #Signout{
   text-decoration: none;
   font-size: 23px;
   font-family: 'Oswald', sans-serif;
