@@ -10,105 +10,54 @@
 
     <!-- Animate.css-->
     <link rel="stylesheet" href="3rd_Party_Libraries/animate.css">
+
     <!-- The ever-holy JQuery. -->
     <script src="3rd_Party_Libraries/JQuery.js"></script>
-    <!-- The libraries for using super dank scroll functionality and GSAP libraries (which is used for parallaxing images)-->
-    <script src="3rd_Party_Libraries\ScrollMagic\ScrollMagic.min.js"></script>
-    <script src="3rd_Party_Libraries\ScrollMagic\plugins\GSAP_Tweening.js"></script>
-    <script src="3rd_Party_Libraries\ScrollMagic\plugins\animation.gsap.min.js"></script>
-	<script src="SCRIPTS\slick.js"></script>
+	  <script src="SCRIPTS\slick.js"></script>
 
-	<!-- carousel library 0-->
-	<link rel="stylesheet" type="text/css" href="CSS/slick/slick/slick.css"/>
+	  <!-- carousel library 0-->
+	  <link rel="stylesheet" type="text/css" href="CSS/slick/slick/slick.css"/>
 
-	<!-- Random CSS stuff -->
-	<link rel="stylesheet" type="text/css" href="CSS/style4.css" />
-
-  <!--Stylesheet-->
-  <link rel="stylesheet" href="CSS/index.css">
-
-	<!-- Random JS stuff -->
-	<script src="js/modernizr.custom.63321.js"></script>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="CSS/index.css">
 
     <!--  Custom Logic Script-->
     <script src="SCRIPTS/main.js"></script>
   </head>
 
   <body>
-	<div id="blackwrapper">
-	  <header>
-		<h1 id="Title">Protein Pal</h1>
-		<!--<a id="Recipes" href="http://www.google.com" target="_blank">Link 1</a>
-		   <a id="Ingredients" href="http://www.google.com" target="_blank">Link 2</a>-->
-	  </header>
+  	<div id="blackwrapper">
+  	  <header>
+  		    <h1 id="Title">Protein Pal</h1>
+  	  </header>
 
-	  <div id="maindiv">
-		<form autocomplete = "off">
-		  <input id="searchBox" type="text" name="search" placeholder="e.g. Spaghetti and Meatballs">
+  	   <div id="maindiv">
+    		<form autocomplete = "off">
+    		  <input id="searchBox" type="text" name="search" placeholder="e.g. Spaghetti and Meatballs">
 
-		  <div id="boxAndDropdown">
-			<!--Dropdown-->
-			<div class="Adv-Opt">
-			  <select class="diet">
-				<option value="High-Protein">High-Protein</option>
-				<option value="Balanced">Balanced</option>
-				<option value="Low-Carb">Low-Carb</option>
-				<option value="Low-Fat">Low-Fat</option>
-			  </select>
-			</div>
+    		  <div id="boxAndDropdown">
+            <!--Dropdown-->
+      			<div class="Adv-Opt">
+      			  <select class="diet">
+      				<option value="High-Protein">High-Protein</option>
+      				<option value="Balanced">Balanced</option>
+      				<option value="Low-Carb">Low-Carb</option>
+      				<option value="Low-Fat">Low-Fat</option>
+      			  </select>
+      			</div>
 
+            <!-- Search Button -->
+    			  <input id="searchBtn" type="button" value="Enter">
 
-
-
-
-
+    		  </div> <!--boxAndDropdown -->
+    		</form>
 
 
+  		<!-- OUTPUT -->
+  		<div class="output">
+  		</div>
 
-
-
-		<div class="container">
-			<section class="main clearfix">
-				<div class="fleft">
-					<select id="cd-dropdown" class="cd-select">
-						<option value="1" class="icon-tux">Linux</option>
-						<option value="2" class="icon-finder">Mac</option>
-						<option value="3" class="icon-windows">Windows</option>
-						<option value="4" class="icon-android">Android</option>
-					</select>
-				</div>
-			</section>
-		</div><!-- /container -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.dropdown.js"></script>
-
-
-		<script type="text/javascript">
-
-			$( function() {
-
-				$( '#cd-dropdown' ).dropdown();
-
-			});
-
-		</script>
-
-
-
-			<!-- Search Button -->
-			<input id="searchBtn" type="button" value="Enter">
-
-		  </div>
-		</form>
-
-
-
-
-		<!-- OUTPUT -->
-		<div class="output">
-		</div>
-
-	  </div>
-	</div>
+      </div><!--maindiv -->
+  	</div><!-- blackwrapper -->
   </body>
 </html>
