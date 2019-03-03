@@ -151,6 +151,8 @@ function apiSuccess(json) {
     //try putting javascript call here
     recipe.showRecipe();
   }
+  // THE AUTO PULL OF NUTRIENT INFO ON SEARCH ---------------------------------------------------------------------------
+  //nutritionixSearch(json.hits[0].recipe.ingredients[0].text);
 }
 
 // zero-out the search fields and variables
