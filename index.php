@@ -225,14 +225,9 @@
         </p>
 
       </section>
-        <input id="favorite" type="button" value="Favorite">
+        <input id="favorite" type="button" value="Favorite" onclick="newFav()">
         <section class="vertical-center slider" id="output">
 
-<<<<<<< HEAD
-          
-
-=======
->>>>>>> 302d860c23df50b08a9eb7bfaeee76e99bc4909c
 
         </section>
 

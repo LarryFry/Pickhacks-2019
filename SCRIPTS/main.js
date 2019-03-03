@@ -347,14 +347,16 @@ function ingredientStorage(currentRecipe, currentIngredient){
 //new favorite dish
 function newFav(){
     favXML = new XMLHttpRequest();
+    favXML.open("POST","favorite.php",true);
+    favXML.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var info = "chicken";
-  
-    }
+      
+    
     favXML.onreadystatechange = function() {
         if (this.status == 200) {
             //document.getElementById("txtHint").innerHTML = this.responseText;
-        };
+        };};
     
-        favXML.open("POST","favorite.php",true);
+        
         favXML.send("info="+info);
 };
