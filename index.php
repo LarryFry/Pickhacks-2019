@@ -27,7 +27,9 @@
   <body>
   	<div id="blackwrapper">
   	  <header>
-  		    <h1 id="Title"></h1>
+  		    <h1 id="Title">Just Recipes</h1>
+          <a id="Login" href="login.php">Login</a>
+          <a id="Signup" href = "newUser.php">Signup</a>
   	  </header>
 
   	   <div id="maindiv">
@@ -227,11 +229,6 @@
 
       </section>
         <section class="vertical-center slider" id="output">
-
-              <div>
-                <img src="http://placehold.it/350x100?text=1">
-              </div>
-
 
         </section>
 	  </div>

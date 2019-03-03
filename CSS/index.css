@@ -25,6 +25,45 @@ form{
   margin: 0 auto;
 }
 
+#Login{
+  text-decoration: none;
+  font-size: 23px;
+  font-family: 'Oswald', sans-serif;
+  color:white;
+  display: inline-block;
+  margin-left: 60%;
+}
+
+#Login:hover{
+  color: #f4511e;
+}
+
+#Signup{
+  text-decoration: none;
+  font-size: 23px;
+  font-family: 'Oswald', sans-serif;
+  color:white;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+#Signup:hover{
+  color: #f4511e;
+}
+
+#Signup_php{
+  text-decoration: none;
+  font-size: 23px;
+  font-family: 'Oswald', sans-serif;
+  color:white;
+  display: inline-block;
+  margin-left: 62%;
+}
+
+#Signup_php:hover{
+  color: #f4511e;
+}
+
 *:focus {
     outline: none;
 }
@@ -106,12 +145,47 @@ option:hover {
   width: 32%;
 }
 
+.loginBox_php{
+  padding: 12px 20px 12px 50px;
+  border-radius:25px;
+  border:1px solid grey;
+  width:25%;
+  margin-top:20px;
+
+  transition: width 0.4s;
+}
+
+.loginBox_php:focus{
+  padding: 12px 20px 12px 50px;
+  border-radius:25px;
+  border:1px solid grey;
+  width:35%;
+  margin-top:20px;
+
+  width: 32%;
+}
+
+.login_instr{
+  color:white;
+  font-size:20px;
+  font-family: 'Oswald', sans-serif;
+
+}
+
 #blackwrapper{
   background-color: rgba(2,2,2,0.60);
   margin: 0;
   border: 0;
   padding: 0;
   height:200vh;
+}
+
+#blackwrapper_php{
+  background-color: rgba(2,2,2,0.60);
+  margin: 0;
+  border: 0;
+  padding: 0;
+  height:100vh;
 }
 
 #Title{
