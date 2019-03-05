@@ -1,6 +1,6 @@
 # Pickhacks-2019
 
-Don't you hate it when you just want to look up a recipe online without hearing the blog poster's whole life story?
+Don't you hate it when you just want to look up a recipe but have to read the blog poster's whole life story?
 
 
 
